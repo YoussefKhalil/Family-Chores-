@@ -1,5 +1,6 @@
 package com.example.loginregister;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AlertDialog;
@@ -47,8 +48,10 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
                 Account account = new Account(username, password, 0, parentStatus);
-                //DBHandler dbHandler = new DBHandler(this);
-               // dbHandler.addAccount(account);
+                Context context;
+
+                DBHandler dbHandler = DBHandler.getInstance(RegisterActivity.this);
+                dbHandler.addAccount(account);
 
                 Intent registerIntent = new Intent(RegisterActivity.this, LoginActivity.class);
                 RegisterActivity.this.startActivity(registerIntent);

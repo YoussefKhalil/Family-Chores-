@@ -34,9 +34,29 @@ public class DBHandler extends SQLiteOpenHelper {
     private static final String KEY_DESCRIPTION = "description";
     private static final String KEY_ACCOUNTNAME = "accountName";
 
+    //Instance of DBandler
+    private static DBHandler helper;
+    private Context context;
 
     public DBHandler(View.OnClickListener context) {
         super((Context) context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+
+    public static synchronized DBHandler getInstance(Context context)
+    {
+        if(helper == null)
+        {
+            helper = new DBHandler(context);
+
+        }
+
+        return helper;
+    }
+
+    public DBHandler(Context context)
+    {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override

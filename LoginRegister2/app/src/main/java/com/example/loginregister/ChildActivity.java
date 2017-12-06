@@ -2,8 +2,6 @@ package com.example.loginregister;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.EditText;
-import android.widget.ListView;
 
 /**
  * Created by Latitude XT3 on 12/4/2017.

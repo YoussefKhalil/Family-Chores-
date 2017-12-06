@@ -41,8 +41,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v){
                 final String username = etUsername.getText().toString();
                 final String password = etPassword.getText().toString();
+
                 String message = "Wrong";
-                DBHandler dbHandler = new DBHandler(this);
+                DBHandler dbHandler = DBHandler.getInstance(LoginActivity.this);
 
                 Account account =dbHandler.getAccount(username);
 
@@ -69,6 +70,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else if(account.getPassword !=)
                 */
+
+
 
 
             }
