@@ -128,8 +128,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
     }
 
-    public List<Chore> getAllChores() {
-        List<Chore> choreList = new ArrayList<Chore>();
+    public ArrayList<Chore> getAllChores() {
+        ArrayList<Chore> choreList = new ArrayList<Chore>();
 // Select All Query
         String selectQuery = "SELECT * FROM " + TABLE_CHORES;
         SQLiteDatabase db = this.getWritableDatabase();
@@ -144,6 +144,13 @@ public class DBHandler extends SQLiteOpenHelper {
         }
 // return contact list
         return choreList;
+    }
+
+    public void deleteChore(Chore chore){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_CHORES, KEY_CHORE + " = ?",
+        new String[] { String.valueOf(chore.getName()) });
+        db.close();
     }
 
 }
